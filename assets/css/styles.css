@@ -8,8 +8,12 @@ body {
     height: 100vh;
 }
 
+.unified-bg {
+    background-color: #f8f8f8; /* Light grey/off-white */
+}
+
 .sidebar {
-    width: 20%;
+    width: 25%;
     background-color: #f4f4f4;
     padding: 20px;
     box-sizing: border-box;
@@ -17,16 +21,29 @@ body {
 }
 
 .sidebar h1 {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 16px; /* Match navigation tabs font size */
+    font-weight: bold; /* Ensure boldness matches */
     margin-bottom: 10px;
+    font-family: Arial, sans-serif; /* Match navigation tabs font */
 }
 
 .profile-photo {
-    width: 100px;
-    height: 100px;
+    width: 150px; /* Increased from 100px to 150px */
+    height: 150px; /* Increased from 100px to 150px */
     border-radius: 50%;
     object-fit: cover;
+    margin-bottom: 10px; /* Optional: Adds a slight margin below the photo */
+}
+
+.sidebar-name {
+    color: #333; /* Match the text color */
+    text-decoration: none; /* Remove underline */
+    font-family: Arial, sans-serif; /* Match navigation tabs font */
+    font-size: 16px; /* Match navigation tabs font size */
+}
+
+.sidebar-name:hover {
+    color: #0073e6; /* Optional: Add a hover color */
 }
 
 .description {
@@ -39,7 +56,8 @@ body {
     color: #333;
     text-decoration: none;
     display: block;
-    margin: 5px 0;
+    margin: 2px 0; /* Reduced from 5px to 2px */
+    font-size: 14px; /* Optional: Adjust font size if needed */
 }
 
 .social-links a:hover {
@@ -47,9 +65,10 @@ body {
 }
 
 .main-content {
-    width: 80%;
+    width: 75%;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #f8f8f8; /* Updated to unified color */
 }
 
 .main-nav ul {
@@ -79,4 +98,25 @@ body {
 
 .content h2 {
     color: #0073e6;
+}
+.project {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.project-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.project-description h3 {
+    margin: 0;
+    color: #0073e6;
+}
+
+.project-description p {
+    margin: 5px 0 0 0;
 }
