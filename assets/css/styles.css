@@ -14,7 +14,7 @@ body {
 
 .sidebar {
     width: 25%;
-    background-color: #f4f4f4;
+    background-color: #f8f8f8;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
@@ -28,8 +28,8 @@ body {
 }
 
 .profile-photo {
-    width: 150px; /* Increased from 100px to 150px */
-    height: 150px; /* Increased from 100px to 150px */
+    width: 200px; /* Increased from 100px to 150px */
+    height: 200px; /* Increased from 100px to 150px */
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px; /* Optional: Adds a slight margin below the photo */
