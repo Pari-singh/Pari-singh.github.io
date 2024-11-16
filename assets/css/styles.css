@@ -1,55 +1,54 @@
-body {
+/* Reset some default styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /* Unified background color */
 }
 
 .container {
     display: flex;
     height: 100vh;
+    background-color: #f8f8f8; /* Unified background color */
 }
 
-.unified-bg {
-    background-color: #f8f8f8; /* Light grey/off-white */
-}
-
+/* Sidebar Styles */
 .sidebar {
-    width: 25%;
-    background-color: #f8f8f8;
+    width: 25%; /* Adjusted from 20% to 25% */
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
+    /* background-color: #f8f8f8; */ /* Removed if using container's background */
 }
 
 .sidebar h1 {
-    font-size: 16px; /* Match navigation tabs font size */
-    font-weight: bold; /* Ensure boldness matches */
-    margin-bottom: 10px;
-    font-family: Arial, sans-serif; /* Match navigation tabs font */
+    display: none; /* Hide the h1 if it's still present */
 }
 
 .profile-photo {
-    width: 250px; /* Increased from 100px to 150px */
-    height: 250px; /* Increased from 100px to 150px */
+    width: 200px; /* Initial size */
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 10px; /* Optional: Adds a slight margin below the photo */
-    margin-top: 20px; /* Added to move the photo lower */
-}
-
-.sidebar-name {
-    color: #333; /* Match the text color */
-    text-decoration: none; /* Remove underline */
-    font-family: Arial, sans-serif; /* Match navigation tabs font */
-    font-size: 16px; /* Match navigation tabs font size */
-}
-
-.sidebar-name:hover {
-    color: #0073e6; /* Optional: Add a hover color */
+    margin-bottom: 10px;
+    margin-top: 20px;
+    max-width: 100%; /* Responsive */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .description {
     margin-top: 10px;
-    /* font-style: italic;*/
+    font-style: italic;
+    color: #555;
+}
+
+.location {
+    margin-top: 10px;
+    font-size: 14px;
     color: #555;
 }
 
@@ -57,25 +56,27 @@ body {
     color: #333;
     text-decoration: none;
     display: block;
-    margin: 2px 0; /* Reduced from 5px to 2px */
-    font-size: 14px; /* Optional: Adjust font size if needed */
+    margin: 2px 0;
+    font-size: 14px;
 }
 
 .social-links a:hover {
     color: #0073e6;
 }
 
+/* Main Content Styles */
 .main-content {
-    width: 75%;
+    width: 75%; /* Adjusted from 80% to 75% */
     padding: 20px;
     box-sizing: border-box;
-    background-color: #f8f8f8; /* Updated to unified color */
+    background-color: #f8f8f8;
 }
 
 .main-nav ul {
     list-style: none;
     padding: 0;
     display: flex;
+    /* border-bottom: 1px solid #ccc; */ /* Removed the line below tabs */
 }
 
 .main-nav li {
@@ -86,12 +87,22 @@ body {
     text-decoration: none;
     color: #333;
     padding-bottom: 10px;
-    font-size: 18px; /* Increased from default (usually 16px) to 18px */
-    font-weight: normal; /* Adjust if needed */
+    font-size: 18px; /* Increased font size */
+    font-weight: normal;
 }
 
 .main-nav a:hover {
     border-bottom: 2px solid #0073e6;
+}
+
+.nav-home {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+.nav-home:hover {
+    color: #0073e6;
 }
 
 .content {
@@ -101,6 +112,8 @@ body {
 .content h2 {
     color: #0073e6;
 }
+
+/* Project Section Styles */
 .project {
     display: flex;
     margin-bottom: 20px;
@@ -121,4 +134,85 @@ body {
 
 .project-description p {
     margin: 5px 0 0 0;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 1024px) {
+    /* Adjustments for tablets and small desktops */
+
+    .container {
+        flex-direction: row; /* Maintain side-by-side layout */
+    }
+
+    .sidebar {
+        width: 25%; /* Maintain sidebar width */
+    }
+
+    .main-content {
+        width: 75%; /* Adjust main content width accordingly */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for tablets and smaller devices */
+
+    .container {
+        flex-direction: column; /* Stack sidebar and main content vertically */
+    }
+
+    .sidebar, .main-content {
+        width: 100%; /* Full width for both sections */
+    }
+
+    .profile-photo {
+        width: 150px; /* Reduce photo size on smaller screens */
+        height: 150px; /* Maintain aspect ratio */
+        margin-top: 10px; /* Reduce top margin */
+        margin-bottom: 10px; /* Adjust bottom margin */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: flex-start; /* Align links to the start */
+    }
+
+    .main-nav li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Add space between links */
+    }
+
+    .main-nav a {
+        font-size: 16px; /* Slightly smaller font size */
+    }
+
+    .social-links a {
+        font-size: 16px; /* Increase font size for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for mobile phones */
+
+    .profile-photo {
+        width: 120px; /* Further reduce photo size */
+        height: 120px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .main-nav a {
+        font-size: 14px; /* Further reduce font size */
+    }
+
+    .social-links a {
+        font-size: 14px;
+    }
+
+    .description, .location {
+        font-size: 14px; /* Adjust description and location text size */
+    }
+
+    .content h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
 }
