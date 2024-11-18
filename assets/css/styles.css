@@ -34,6 +34,7 @@ body {
     border-radius: 10px; /* Reduced border radius for rectangle */
     object-fit: cover;
     margin-bottom: 20px; /* Increased bottom margin for spacing */
+    margin-top: 40px;
     /* Removed margin-top to align with top */
 }
 
