@@ -12,7 +12,7 @@ body {
 
 .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh; /* Ensure the container takes full viewport height */
     background-color: #f8f8f8; /* Unified background color */
 }
 
@@ -22,51 +22,42 @@ body {
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
-    /* background-color: #f8f8f8; */ /* Removed if using container's background */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center vertically */
-}
-
-.profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px; /* Space between profile and social links */
+    /* Removed justify-content: center; to stack items from the top */
 }
 
 .profile-photo {
-    width: 200px; /* Initial width */
-    height: 250px; /* Increased height for rectangle shape */
+    width: 220px; /* Increased size */
+    height: 280px; /* Increased height for rectangle shape */
     border-radius: 10px; /* Reduced border radius for rectangle */
     object-fit: cover;
-    margin-bottom: 10px;
-    /* margin-top: 20px; */ /* Removed as vertical centering is handled by flexbox */
-    max-width: 100%; /* Responsive */
-    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Increased bottom margin for spacing */
+    /* Removed margin-top to align with top */
 }
 
 .description {
-    margin-top: 10px;
     font-style: italic;
     color: #555;
+    margin-bottom: 10px; /* Space below description */
+    text-align: center;
 }
 
 .location {
-    margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px; /* Increased font size for visibility */
     color: #555;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px; /* Space below location */
 }
 
 .location i {
     margin-right: 8px; /* Space between icon and text */
+    color: #333; /* Icon color */
 }
 
-/* Social Links Styles */
 .social-links {
     width: 100%;
 }
@@ -76,17 +67,23 @@ body {
     text-decoration: none;
     display: flex;
     align-items: center;
-    margin: 2px 0; /* Reduced margin */
-    font-size: 14px;
+    margin: 5px 0; /* Reduced margin for tighter spacing */
+    font-size: 16px; /* Increased font size for readability */
     padding: 5px 0; /* Added padding for better touch targets */
 }
 
 .social-links a i {
     margin-right: 8px; /* Space between icon and text */
+    color: #333; /* Icon color */
+    font-size: 18px; /* Increased icon size */
 }
 
 .social-links a:hover {
     color: #0073e6;
+}
+
+.social-links a:hover i {
+    color: #0073e6; /* Change icon color on hover */
 }
 
 /* Main Content Styles */
@@ -101,7 +98,8 @@ body {
     list-style: none;
     padding: 0;
     display: flex;
-    /* border-bottom: 1px solid #ccc; */ /* Removed the line below tabs */
+    /* Removed border-bottom for a cleaner look */
+    margin-bottom: 30px; /* Added margin below navigation */
 }
 
 .main-nav li {
@@ -112,7 +110,7 @@ body {
     text-decoration: none;
     color: #333;
     padding-bottom: 10px;
-    font-size: 18px; /* Increased font size */
+    font-size: 20px; /* Increased font size */
     font-weight: normal;
     display: flex;
     align-items: center;
@@ -124,7 +122,7 @@ body {
 
 .nav-home {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px; /* Ensures consistency */
     color: #333;
 }
 
@@ -134,10 +132,18 @@ body {
 
 .content {
     margin-top: 20px;
+    max-width: 800px;
 }
 
 .content h2 {
     color: #0073e6;
+    margin-bottom: 20px; /* Increased margin below heading */
+}
+
+.content p {
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 15px; /* Added margin between paragraphs */
 }
 
 /* Project Section Styles */
@@ -177,6 +183,7 @@ body {
 
     .main-content {
         width: 75%; /* Adjust main content width accordingly */
+        max-width: 800px;
     }
 }
 
@@ -192,10 +199,9 @@ body {
     }
 
     .profile-photo {
-        width: 150px; /* Reduce photo size on smaller screens */
-        height: 200px; /* Adjust height to maintain rectangle shape */
-        margin-top: 10px; /* Reduce top margin */
-        margin-bottom: 10px; /* Adjust bottom margin */
+        width: 180px; /* Reduce photo size on smaller screens */
+        height: 220px; /* Adjust height to maintain rectangle shape */
+        margin-bottom: 15px; /* Adjust bottom margin */
     }
 
     .main-nav ul {
@@ -209,11 +215,15 @@ body {
     }
 
     .main-nav a {
-        font-size: 16px; /* Slightly smaller font size */
+        font-size: 18px; /* Slightly smaller font size */
     }
 
     .social-links a {
-        font-size: 16px; /* Increase font size for better readability */
+        font-size: 18px; /* Increase font size for better readability */
+    }
+
+    .content h2 {
+        margin-bottom: 15px; /* Adjust margin below heading */
     }
 }
 
@@ -221,18 +231,17 @@ body {
     /* Adjustments for mobile phones */
 
     .profile-photo {
-        width: 120px; /* Further reduce photo size */
-        height: 160px;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        width: 140px; /* Further reduce photo size */
+        height: 180px;
+        margin-bottom: 10px; /* Adjust bottom margin */
     }
 
     .main-nav a {
-        font-size: 14px; /* Further reduce font size */
+        font-size: 16px; /* Further reduce font size */
     }
 
     .social-links a {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .description, .location {
