@@ -301,3 +301,43 @@ body {
         font-size: 14px;
     }
 }
+.social-links {
+    /* Remove or comment out the width property */
+    /* width: 100%; */
+
+    /* Add Flexbox properties for centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content within the link */
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    width: auto; /* Ensure links don't stretch */
+    padding: 8px 16px; /* Optional: Add padding for better click area */
+    border-radius: 4px; /* Optional: Rounded corners for a modern look */
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    background-color: rgba(0, 188, 212, 0.1); /* Optional: Subtle background on hover */
+}
+
+.social-icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    fill: var(--accent-color);
+    transition: fill 0.3s ease;
+}
+
+.social-links a:hover .social-icon {
+    fill: var(--hover-color);
+}
