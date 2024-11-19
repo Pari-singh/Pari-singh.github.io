@@ -39,7 +39,7 @@ body {
 }
 
 .description {
-    font-style: italic;
+    /*font-style: italic;*/
     color: #555;
     margin-bottom: 10px; /* Space below description */
     text-align: center;
