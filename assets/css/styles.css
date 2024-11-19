@@ -1,7 +1,6 @@
 /* Define CSS Variables for Colors */
 :root {
     --background-color: #121212; /* Dark background */
-    --sidebar-background: #1e1e1e; /* Slightly lighter for sidebar */
     --text-color: #e0e0e0; /* Light gray text for contrast */
     --accent-color: #00bcd4; /* Vibrant cyan for cheerful accents */
     --secondary-accent: #ff5722; /* Vibrant orange for additional accents */
@@ -16,109 +15,28 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    padding: 0;
 }
 
 /* Container Layout */
 .container {
-    display: flex;
-    min-height: 100vh;
-    background-color: var(--background-color);
-}
-
-/* Sidebar Styles */
-.sidebar {
-    width: 25%;
-    padding: 40px 20px;
-    background-color: var(--sidebar-background);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.profile-photo {
-    width: 220px;
-    height: 280px;
-    border-radius: 10px;
-    object-fit: cover;
-    margin-bottom: 30px;
-    border: 4px solid var(--accent-color);
-}
-
-.description {
-    font-style: italic;
-    color: #b0b0b0; /* Slightly dimmer for hierarchy */
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 18px;
-}
-
-/* Location Styling */
-.location {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    color: #b0b0b0;
-    margin-bottom: 30px;
-}
-
-.location-icon {
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
-    fill: var(--accent-color);
-}
-
-/* Social Links */
-.social-links {
-    width: 100%;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    color: var(--text-color);
-    text-decoration: none;
-    margin: 10px 0;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--accent-color);
-}
-
-.social-icon {
-    margin-right: 12px;
-    width: 24px;
-    height: 24px;
-    fill: var(--accent-color);
-    transition: fill 0.3s ease;
-}
-
-.social-links a:hover .social-icon {
-    fill: var(--hover-color);
-}
-
-/* Main Content Styles */
-.main-content {
-    width: 75%;
-    padding: 40px 60px;
-    background-color: var(--background-color);
-    overflow-y: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 /* Navigation Tabs */
 .main-nav ul {
     list-style: none;
     display: flex;
+    justify-content: center; /* Center the tabs horizontally */
     border-bottom: 2px solid var(--border-color);
     margin-bottom: 40px;
 }
 
 .main-nav li {
-    margin-right: 30px;
+    margin: 0 15px;
 }
 
 .tablink {
@@ -127,7 +45,7 @@ body {
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease, transform 0.2s ease;
     font-size: 18px;
     color: #b0b0b0;
     position: relative;
@@ -135,32 +53,58 @@ body {
 
 .tablink:hover {
     color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 .tablink.active {
     color: var(--accent-color);
     border-bottom: 3px solid var(--accent-color);
+    transform: translateY(-2px);
 }
 
 /* Content Sections */
 .tabcontent {
     display: none;
-    animation: fadeEffect 0.5s;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .tabcontent.show {
     display: block;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
 }
 
-.tabcontent h2 {
+/* Bio Section */
+.bio-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.bio-container .profile-photo {
+    width: 220px;
+    height: 280px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    flex-shrink: 0;
+}
+
+.bio-content {
+    max-width: 800px;
+}
+
+.bio-content h2 {
     margin-bottom: 20px;
     color: var(--accent-color);
     font-size: 28px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.tabcontent p, .tabcontent ul {
+.tabcontent p {
     font-size: 18px;
     margin-bottom: 20px;
     color: var(--text-color);
@@ -168,20 +112,27 @@ body {
 
 .tabcontent ul {
     list-style: disc inside;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--text-color);
 }
 
+/* Projects Section */
 .project {
     display: flex;
     margin-bottom: 30px;
-    background-color: #1e1e1e; /* Match sidebar background for cohesion */
+    background-color: #1e1e1e; /* Cohesive dark background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
 }
 
 .project:hover {
     background-color: #2a2a2a;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.7);
 }
 
 .project-image {
@@ -190,12 +141,24 @@ body {
     object-fit: cover;
     border-radius: 10px;
     margin-right: 20px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+}
+
+.project-description {
+    flex: 1;
 }
 
 .project-description h3 {
     margin-bottom: 10px;
     color: var(--accent-color);
     font-size: 22px;
+    display: flex;
+    align-items: center;
 }
 
 .project-description p {
@@ -203,67 +166,80 @@ body {
     color: var(--text-color);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .sidebar {
-        width: 30%;
-    }
-
-    .main-content {
-        width: 70%;
-        padding: 30px 40px;
-    }
+/* Social Links (If you decide to keep them elsewhere) */
+/* Since the sidebar is removed, you might want to place social links at the bottom or elsewhere */
+/* Example: Place at the bottom center */
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
 }
 
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 10px;
+    font-size: 18px;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
 
-    .sidebar, .main-content {
-        width: 100%;
-        padding: 20px;
-    }
+.social-links a:hover {
+    color: var(--accent-color);
+    background-color: rgba(0, 188, 212, 0.1);
+}
 
-    .profile-photo {
-        width: 180px;
-        height: 240px;
-        margin-bottom: 20px;
-    }
+.social-icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    fill: var(--accent-color);
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
 
-    .description {
-        font-size: 16px;
-        margin-bottom: 15px;
-    }
+.social-links a:hover .social-icon {
+    fill: var(--hover-color);
+    transform: scale(1.1);
+}
 
-    .location {
-        font-size: 14px;
-        margin-bottom: 25px;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        border-bottom: none;
-    }
-
-    .main-nav li {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .tablink {
-        font-size: 16px;
-        padding: 10px 12px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .bio-container {
+        gap: 20px;
     }
 
     .main-nav ul {
         margin-bottom: 30px;
     }
+}
+
+@media (max-width: 768px) {
+    .bio-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .bio-container .profile-photo {
+        width: 180px;
+        height: 240px;
+        margin-bottom: 20px;
+    }
+
+    .bio-content {
+        max-width: 100%;
+    }
 
     .project {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 
     .project-image {
@@ -274,7 +250,11 @@ body {
     }
 
     .project-description h3 {
-        text-align: center;
+        justify-content: center;
+    }
+
+    .social-links {
+        gap: 15px;
     }
 }
 
@@ -284,60 +264,25 @@ body {
         height: 180px;
     }
 
-    .description {
-        font-size: 14px;
+    .bio-content h2 {
+        font-size: 24px;
     }
 
-    .location {
-        font-size: 12px;
+    .bio-content p, .tabcontent ul {
+        font-size: 16px;
     }
 
     .tablink {
-        font-size: 14px;
-        padding: 8px 10px;
+        font-size: 16px;
+        padding: 10px 12px;
     }
 
     .project-description p {
         font-size: 14px;
     }
-}
-.social-links {
-    /* Remove or comment out the width property */
-    /* width: 100%; */
 
-    /* Add Flexbox properties for centering */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center content within the link */
-    color: var(--text-color);
-    text-decoration: none;
-    margin: 10px 0;
-    font-size: 18px;
-    transition: color 0.3s ease;
-    width: auto; /* Ensure links don't stretch */
-    padding: 8px 16px; /* Optional: Add padding for better click area */
-    border-radius: 4px; /* Optional: Rounded corners for a modern look */
-}
-
-.social-links a:hover {
-    color: var(--accent-color);
-    background-color: rgba(0, 188, 212, 0.1); /* Optional: Subtle background on hover */
-}
-
-.social-icon {
-    margin-right: 12px;
-    width: 24px;
-    height: 24px;
-    fill: var(--accent-color);
-    transition: fill 0.3s ease;
-}
-
-.social-links a:hover .social-icon {
-    fill: var(--hover-color);
+    .social-links a {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
 }
