@@ -6,57 +6,59 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8; /* Unified background color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9; /* Soft background color */
+    color: #333;
+    line-height: 1.6;
 }
 
 .container {
     display: flex;
-    min-height: 100vh; /* Ensure the container takes full viewport height */
-    background-color: #f8f8f8; /* Unified background color */
+    min-height: 100vh; /* Full viewport height */
+    background-color: #f4f4f9;
 }
 
 /* Sidebar Styles */
 .sidebar {
-    width: 25%; /* Adjusted from 20% to 25% */
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
+    width: 25%;
+    padding: 40px 20px; /* Increased padding for luxurious buffer */
+    background-color: #fff; /* White background for contrast */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Subtle shadow */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Removed justify-content: center; to stack items from the top */
 }
 
 .profile-photo {
-    width: 220px; /* Increased size */
-    height: 280px; /* Increased height for rectangle shape */
-    border-radius: 10px; /* Reduced border radius for rectangle */
+    width: 220px;
+    height: 280px;
+    border-radius: 10px;
     object-fit: cover;
-    margin-bottom: 20px; /* Increased bottom margin for spacing */
-    margin-top: 40px;
-    /* Removed margin-top to align with top */
+    margin-bottom: 30px; /* Increased spacing */
+    border: 4px solid #0073e6; /* Accent border */
 }
 
 .description {
-    /*font-style: italic;*/
+    font-style: italic;
     color: #555;
-    margin-bottom: 10px; /* Space below description */
+    margin-bottom: 20px;
     text-align: center;
+    font-size: 18px; /* Larger font for readability */
 }
 
 .location {
-    font-size: 16px; /* Increased font size for visibility */
-    color: #555;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px; /* Space below location */
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
 }
 
-.location i {
-    margin-right: 8px; /* Space between icon and text */
-    color: #333; /* Icon color */
+.location-icon {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    fill: #0073e6; /* Accent color */
 }
 
 .social-links {
@@ -64,192 +66,230 @@ body {
 }
 
 .social-links a {
-    color: #333;
-    text-decoration: none;
     display: flex;
     align-items: center;
-    margin: 5px 0; /* Reduced margin for tighter spacing */
-    font-size: 16px; /* Increased font size for readability */
-    padding: 5px 0; /* Added padding for better touch targets */
+    color: #333;
+    text-decoration: none;
+    margin: 10px 0; /* Increased spacing */
+    font-size: 18px;
+    transition: color 0.3s ease;
 }
 
-.social-links a i {
-    margin-right: 8px; /* Space between icon and text */
-    color: #333; /* Icon color */
-    font-size: 18px; /* Increased icon size */
+.social-icon {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    transition: fill 0.3s ease;
 }
 
 .social-links a:hover {
     color: #0073e6;
 }
 
-.social-links a:hover i {
-    color: #0073e6; /* Change icon color on hover */
+.social-links a:hover .social-icon {
+    fill: #0073e6;
 }
 
 /* Main Content Styles */
 .main-content {
-    width: 75%; /* Adjusted from 80% to 75% */
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f8f8f8;
+    width: 75%;
+    padding: 40px 60px; /* Increased padding for spacious layout */
+    background-color: #f4f4f9;
+    overflow-y: auto;
 }
 
+/* Navigation Tabs */
 .main-nav ul {
     list-style: none;
-    padding: 0;
     display: flex;
-    /* Removed border-bottom for a cleaner look */
-    margin-bottom: 30px; /* Added margin below navigation */
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 40px;
 }
 
 .main-nav li {
-    margin-right: 20px;
+    margin-right: 30px;
 }
 
-.main-nav a {
-    text-decoration: none;
-    color: #333;
-    padding-bottom: 10px;
-    font-size: 20px; /* Increased font size */
-    font-weight: normal;
-    display: flex;
-    align-items: center;
+.tablink {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    font-size: 18px;
+    color: #555;
+    position: relative;
 }
 
-.main-nav a:hover {
-    border-bottom: 2px solid #0073e6;
-}
-
-.nav-home {
-    font-weight: bold;
-    font-size: 20px; /* Ensures consistency */
-    color: #333;
-}
-
-.nav-home:hover {
+.tablink:hover {
     color: #0073e6;
 }
 
-.content {
-    margin-top: 20px;
-    max-width: 800px;
-}
-
-.content h2 {
+.tablink.active {
     color: #0073e6;
-    margin-bottom: 20px; /* Increased margin below heading */
+    border-bottom: 3px solid #0073e6;
 }
 
-.content p {
-    line-height: 1.6;
-    text-align: left;
-    margin-bottom: 15px; /* Added margin between paragraphs */
+/* Content Sections */
+.tabcontent {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
 }
 
-/* Project Section Styles */
+.tabcontent.show {
+    opacity: 1;
+    height: auto;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.tabcontent h2 {
+    margin-bottom: 20px;
+    color: #0073e6;
+    font-size: 28px;
+}
+
+.tabcontent p, .tabcontent ul {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.tabcontent ul {
+    list-style: disc inside;
+}
+
 .project {
     display: flex;
-    margin-bottom: 20px;
-    align-items: center;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .project-image {
     width: 150px;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
     margin-right: 20px;
 }
 
 .project-description h3 {
-    margin: 0;
+    margin-bottom: 10px;
     color: #0073e6;
+    font-size: 22px;
 }
 
 .project-description p {
-    margin: 5px 0 0 0;
+    font-size: 16px;
 }
 
-/* Responsive Design Enhancements */
+/* Responsive Design */
 @media (max-width: 1024px) {
-    /* Adjustments for tablets and small desktops */
-
-    .container {
-        flex-direction: row; /* Maintain side-by-side layout */
-    }
-
     .sidebar {
-        width: 25%; /* Maintain sidebar width */
+        width: 30%;
     }
 
     .main-content {
-        width: 75%; /* Adjust main content width accordingly */
-        max-width: 800px;
+        width: 70%;
+        padding: 30px 40px;
     }
 }
 
 @media (max-width: 768px) {
-    /* Adjustments for tablets and smaller devices */
-
     .container {
-        flex-direction: column; /* Stack sidebar and main content vertically */
+        flex-direction: column;
     }
 
     .sidebar, .main-content {
-        width: 100%; /* Full width for both sections */
+        width: 100%;
+        padding: 20px;
     }
 
     .profile-photo {
-        width: 180px; /* Reduce photo size on smaller screens */
-        height: 220px; /* Adjust height to maintain rectangle shape */
-        margin-bottom: 15px; /* Adjust bottom margin */
+        width: 180px;
+        height: 240px;
+        margin-bottom: 20px;
+    }
+
+    .description {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .location {
+        font-size: 14px;
+        margin-bottom: 25px;
     }
 
     .main-nav ul {
-        flex-direction: column; /* Stack navigation links vertically */
-        align-items: flex-start; /* Align links to the start */
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: none;
     }
 
     .main-nav li {
         margin-right: 0;
-        margin-bottom: 10px; /* Add space between links */
+        margin-bottom: 10px;
     }
 
-    .main-nav a {
-        font-size: 18px; /* Slightly smaller font size */
+    .tablink {
+        font-size: 16px;
+        padding: 10px 12px;
     }
 
-    .social-links a {
-        font-size: 18px; /* Increase font size for better readability */
+    .main-nav ul {
+        margin-bottom: 30px;
     }
 
-    .content h2 {
-        margin-bottom: 15px; /* Adjust margin below heading */
+    .project {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+        height: auto;
+    }
+
+    .project-description h3 {
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    /* Adjustments for mobile phones */
-
     .profile-photo {
-        width: 140px; /* Further reduce photo size */
+        width: 140px;
         height: 180px;
-        margin-bottom: 10px; /* Adjust bottom margin */
     }
 
-    .main-nav a {
-        font-size: 16px; /* Further reduce font size */
+    .description {
+        font-size: 14px;
     }
 
-    .social-links a {
-        font-size: 16px;
+    .location {
+        font-size: 12px;
     }
 
-    .description, .location {
-        font-size: 14px; /* Adjust description and location text size */
+    .tablink {
+        font-size: 14px;
+        padding: 8px 10px;
     }
 
-    .content h2 {
-        font-size: 20px; /* Adjust heading size */
+    .project-description p {
+        font-size: 14px;
     }
+
+    html {
+    scroll-behavior: smooth;
+}
 }
