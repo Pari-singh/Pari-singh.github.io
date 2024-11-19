@@ -7,6 +7,11 @@
     <meta name="description" content="Pari Singh's personal website showcasing ML research, projects, and professional background.">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Optional: Add favicon -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -126,7 +131,7 @@
             </nav>
 
             <!-- Content Sections -->
-            <section id="Bio" class="tabcontent" role="tabpanel" aria-labelledby="Bio-tab" style="display: block;">
+            <section id="Bio" class="tabcontent show" role="tabpanel" aria-labelledby="Bio-tab">
                 <h2>Bio</h2>
                 <p>
                     I am a Machine Learning Engineer with over 5 years of experience in Computer Vision, Generative AI, and 3D scene representation. Passionate about building scalable, reliable, and safe AI systems, I focus on advancing multimodal technologies that seamlessly integrate diverse modalities to drive real-world impact.
@@ -181,20 +186,20 @@
             // Declare all variables
             var i, tabcontent, tablinks;
 
-            // Get all elements with class="tabcontent" and hide them
+            // Get all elements with class="tabcontent" and remove the "show" class
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("show");
             }
 
-            // Get all elements with class="tablink" and remove the class "active"
+            // Get all elements with class="tablink" and remove the "active" class
             tablinks = document.getElementsByClassName("tablink");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
 
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.getElementById(tabName).style.display = "block";
+            // Add the "show" class to the current tab, and add "active" class to the button that opened the tab
+            document.getElementById(tabName).classList.add("show");
             evt.currentTarget.classList.add("active");
         }
 
@@ -206,6 +211,9 @@
                 if(tab) {
                     tab.click();
                 }
+            } else {
+                // Ensure the first tab is active
+                document.querySelector('.tablink.active').click();
             }
         }
     </script>
