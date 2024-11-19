@@ -1,11 +1,11 @@
 /* Define CSS Variables for Colors */
 :root {
-    --background-color: #121212; /* Dark background */
-    --text-color: #e0e0e0; /* Light gray text for contrast */
-    --accent-color: #4CAF50; /* Subtle green for accents */
-    --secondary-accent: #81C784; /* Lighter green for additional accents */
-    --border-color: #333333; /* Dark borders */
-    --hover-color: #66BB6A; /* Slightly lighter green for hover states */
+    --background-color: #121212;     /* Dark background */
+    --text-color: #e0e0e0;           /* Light gray text for contrast */
+    --accent-color: #0d47a1;         /* Deep blue for accents */
+    --secondary-accent: #42a5f5;     /* Lighter blue for gradients */
+    --hover-color: #1e88e5;          /* Intermediate blue for hover states */
+    --border-color: #333333;         /* Dark borders */
 }
 
 /* Apply Background and Text Colors */
@@ -17,6 +17,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
     margin: 0;
     padding: 0;
+    padding-bottom: 60px; /* Add padding to prevent footer overlap */
 }
 
 /* Navigation Tabs */
@@ -32,7 +33,7 @@ body {
 .main-nav ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Center the tabs horizontally */
+    justify-content: center;
     margin: 0;
     padding: 10px 0;
 }
@@ -52,32 +53,32 @@ body {
 
 .main-nav .nav-link:hover {
     color: var(--accent-color);
-    background-color: rgba(76, 175, 80, 0.1); /* Light green background on hover */
+    background-color: rgba(13, 71, 161, 0.1);
     transform: translateY(-2px);
 }
 
 .main-nav .nav-link.active {
     color: var(--accent-color);
-    background-color: rgba(76, 175, 80, 0.2); /* Slightly darker green for active */
+    background-color: rgba(13, 71, 161, 0.2);
     transform: translateY(-2px);
 }
 
 /* Section Styling */
 .section {
-    padding: 100px 20px 60px 20px; /* Top padding accounts for fixed nav */
+    padding: 100px 20px 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .bio-section {
-    margin-top: 60px; /* Additional top margin to prevent content under nav */
+    margin-top: 60px;
 }
 
 .bio-container {
     display: flex;
     align-items: flex-start;
     gap: 30px;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 .profile-container {
@@ -100,9 +101,10 @@ body {
     max-width: 800px;
 }
 
-.bio-content h2 {
+.bio-content h2,
+.research-section h2,
+.projects-section h2 {
     margin-bottom: 20px;
-    color: var(--accent-color);
     font-size: 28px;
     background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
     -webkit-background-clip: text;
@@ -119,13 +121,13 @@ body {
 .additional-info {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center alignment */
+    align-items: center;
     gap: 10px;
 }
 
 .description {
     font-style: italic;
-    color: #b0b0b0; /* Slightly dimmer for hierarchy */
+    color: #b0b0b0;
     text-align: center;
     font-size: 16px;
 }
@@ -185,15 +187,15 @@ body {
 
 /* Footer Styling */
 .footer {
-    position: fixed;      /* Make the footer fixed */
-    bottom: 0;            /* Position it at the bottom of the viewport */
-    width: 100%;          /* Ensure it spans the full width */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: var(--background-color);
     color: #b0b0b0;
     text-align: center;
-    padding: 10px 0;      /* Adjusted padding */
+    padding: 10px 0;
     border-top: 1px solid var(--border-color);
-    z-index: 1000;        /* Keep it above other elements */
+    z-index: 1000;
 }
 
 .footer p {
@@ -201,19 +203,9 @@ body {
     font-size: 14px;
 }
 
-
 /* Research and Projects Sections */
 .research-section, .projects-section {
     text-align: center;
-}
-
-.research-section h2, .projects-section h2 {
-    margin-bottom: 20px;
-    color: var(--accent-color);
-    font-size: 28px;
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .research-section ul, .projects-section ul {
@@ -230,12 +222,12 @@ body {
     display: flex;
     align-items: flex-start;
     margin-bottom: 30px;
-    background-color: #1e1e1e; /* Cohesive dark background */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    flex-wrap: wrap;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -267,21 +259,17 @@ body {
 
 .project-description h3 {
     margin-bottom: 10px;
-    color: var(--accent-color);
     font-size: 22px;
     display: flex;
     align-items: center;
+    color: var(--accent-color);
 }
 
 .project-description .project-icon {
     margin-right: 8px;
     width: 20px;
     height: 20px;
-}
-
-.project-description p {
-    font-size: 16px;
-    color: var(--text-color);
+    fill: var(--accent-color);
 }
 
 /* Smooth Scroll Behavior */
