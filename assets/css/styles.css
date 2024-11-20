@@ -1,12 +1,15 @@
 /* Define CSS Variables for Colors */
 :root {
-    --background-color: #121212;     /* Dark background */
-    --text-color: #e0e0e0;           /* Light gray text for contrast */
-    --accent-color: #0d47a1;         /* Deep blue for accents */
-    --secondary-accent: #42a5f5;     /* Lighter blue for gradients */
-    --hover-color: #1e88e5;          /* Intermediate blue for hover states */
-    --border-color: #333333;         /* Dark borders */
+    --background-color: #1E1E2F;     /* Deep Navy Blue */
+    --secondary-background: #2E2E3E; /* Muted Indigo */
+    --text-color: #E0E0E0;           /* Light Gray */
+    --secondary-text-color: #B0B0B0; /* Medium Gray */
+    --accent-color: #FFC107;         /* Amber */
+    --secondary-accent: #03DAC6;     /* Teal */
+    --hover-color: #FFD54F;          /* Light Amber */
+    --border-color: #3E3E4F;         /* Dark Slate */
 }
+
 
 /* Apply Background and Text Colors */
 body {
@@ -43,7 +46,7 @@ body {
 }
 
 .main-nav .nav-link {
-    color: #b0b0b0;
+    color: var(--secondary-text-color);
     text-decoration: none;
     font-size: 18px;
     padding: 8px 16px;
@@ -53,13 +56,13 @@ body {
 
 .main-nav .nav-link:hover {
     color: var(--accent-color);
-    background-color: rgba(13, 71, 161, 0.1);
+    background-color: rgba(255, 193, 7, 0.1); /* rgba for semi-transparent background */
     transform: translateY(-2px);
 }
 
 .main-nav .nav-link.active {
     color: var(--accent-color);
-    background-color: rgba(13, 71, 161, 0.2);
+    background-color: rgba(255, 193, 7, 0.2);
     transform: translateY(-2px);
 }
 
@@ -107,7 +110,7 @@ body {
 
 .description {
     font-style: italic;
-    color: #b0b0b0;
+    color: var(--secondary-text-color);
     text-align: center;
     font-size: 16px;
 }
@@ -116,7 +119,7 @@ body {
     display: flex;
     align-items: center;
     font-size: 16px;
-    color: #b0b0b0;
+    color: var(--secondary-text-color);
 }
 
 .location-icon {
@@ -192,7 +195,7 @@ body {
     bottom: 0;
     width: 100%;
     background-color: var(--background-color);
-    color: #b0b0b0;
+    color: var(--secondary-text-color);
     text-align: center;
     padding: 10px 0;
     border-top: 1px solid var(--border-color);
@@ -223,7 +226,7 @@ body {
     display: flex;
     align-items: flex-start;
     margin-bottom: 30px;
-    background-color: #1e1e1e;
+    background-color: var(--secondary-background);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
@@ -235,7 +238,7 @@ body {
 }
 
 .project:hover {
-    background-color: #2a2a2a;
+    background-color: var(--background-color);
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.7);
 }
@@ -377,4 +380,44 @@ html {
 /* Optional: Center the section heading */
 .research-section h2 {
     text-align: center;
+}
+
+/* Research Papers Section */
+.research-paper {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    margin-bottom: 30px;
+    max-width: 800px; /* Center the content */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paper-image {
+    width: 200px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.paper-details {
+    flex: 1; /* Take up the remaining space */
+}
+
+.paper-details h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: var(--accent-color);
+}
+
+.paper-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Center the section heading */
+.research-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
 }
