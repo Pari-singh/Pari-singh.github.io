@@ -10,7 +10,6 @@
     --border-color: #3E3E4F;         /* Dark Slate */
 }
 
-
 /* Apply Background and Text Colors */
 body {
     background-color: var(--background-color);
@@ -56,7 +55,7 @@ body {
 
 .main-nav .nav-link:hover {
     color: var(--accent-color);
-    background-color: rgba(255, 193, 7, 0.1); /* rgba for semi-transparent background */
+    background-color: rgba(255, 193, 7, 0.1); /* Semi-transparent background */
     transform: translateY(-2px);
 }
 
@@ -150,6 +149,61 @@ body {
     color: var(--text-color);
 }
 
+/* Research Papers Section */
+.research-paper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paper-image {
+    width: 400px;
+    height: 300px; /* Increased height to match text */
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.paper-details {
+    flex: 1;
+}
+
+.paper-details h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: var(--accent-color);
+}
+
+.paper-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Style links inside Research Section */
+.research-section a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.research-section a:hover {
+    color: var(--secondary-accent);
+    text-decoration: underline;
+}
+
+.research-section a:visited {
+    color: var(--accent-color);
+}
+
+/* Center the section heading */
+.research-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 /* Social Links in Footer */
 .footer-social-links {
     display: flex;
@@ -207,21 +261,7 @@ body {
     font-size: 14px;
 }
 
-/* Research and Projects Sections */
-.research-section, .projects-section {
-    text-align: center;
-}
-
-.research-section ul, .projects-section ul {
-    list-style: disc inside;
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
-}
-
+/* Projects Section */
 .project {
     display: flex;
     align-items: flex-start;
@@ -329,33 +369,57 @@ html {
         gap: 10px;
     }
 
-    .research-section ul, .projects-section ul {
-        text-align: left;
-        padding-left: 20px;
+    /* Adjust research paper layout on smaller screens */
+    .research-paper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .paper-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .paper-details {
+        width: 100%;
+    }
+
+    .project {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .project-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .project-description {
+        width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     .profile-photo {
         width: 140px;
-        height: 180px;
+        height: auto;
     }
 
     .bio-content h2 {
         font-size: 24px;
     }
 
-    .bio-content p, .research-section ul, .projects-section ul {
+    .bio-content p,
+    .paper-details p,
+    .project-description p {
         font-size: 16px;
     }
 
     .main-nav .nav-link {
         font-size: 16px;
         padding: 6px 10px;
-    }
-
-    .project-description p {
-        font-size: 14px;
     }
 
     .footer-social-links a {
@@ -365,59 +429,8 @@ html {
 }
 
 /* Optional: Focus States for Accessibility */
-.nav-link:focus, .footer-social-links a:focus {
+.nav-link:focus,
+.footer-social-links a:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
-}
-
-/* Center the research section */
-.research-section {
-    max-width: 800px; /* Adjust the width as needed */
-    margin: 0 auto;   /* Centers the section */
-    text-align: left; /* Ensures text is left-aligned */
-}
-
-/* Optional: Center the section heading */
-.research-section h2 {
-    text-align: center;
-}
-
-/* Research Papers Section */
-.research-paper {
-    display: flex;
-    align-items: flex-start; /* Align items at the top */
-    margin-bottom: 30px;
-    max-width: 800px; /* Center the content */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.paper-image {
-    width: 200px; /* Set a fixed width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover;
-    margin-right: 20px;
-    border-radius: 10px;
-}
-
-.paper-details {
-    flex: 1; /* Take up the remaining space */
-}
-
-.paper-details h3 {
-    margin-top: 0;
-    font-size: 22px;
-    color: var(--accent-color);
-}
-
-.paper-details p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: var(--text-color);
-}
-
-/* Center the section heading */
-.research-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
 }
