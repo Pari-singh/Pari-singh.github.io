@@ -155,7 +155,7 @@ body {
 }
 
 .paper-image {
-    width: 150px;
+    width: 400px;
     height: 200px; /* Adjusted height */
     object-fit: cover;
     margin-right: 15px;
