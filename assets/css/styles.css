@@ -1,13 +1,13 @@
 /* Define CSS Variables for Colors */
 :root {
-    --background-color: #1E1E2F;     /* Deep Navy Blue */
-    --secondary-background: #2E2E3E; /* Muted Indigo */
-    --text-color: #E0E0E0;           /* Light Gray */
-    --secondary-text-color: #B0B0B0; /* Medium Gray */
-    --accent-color: #FFC107;         /* Amber */
-    --secondary-accent: #03DAC6;     /* Teal */
-    --hover-color: #FFD54F;          /* Light Amber */
-    --border-color: #3E3E4F;         /* Dark Slate */
+    --background-color: #000000;       /* Black */
+    --secondary-background: #1A1A1A;   /* Dark Gray */
+    --text-color: #FFFFFF;             /* White */
+    --secondary-text-color: #CCCCCC;   /* Light Gray */
+    --accent-color: #FFFFFF;           /* White */
+    --secondary-accent: #DDDDDD;       /* Very Light Gray */
+    --hover-color: #BBBBBB;            /* Medium Gray */
+    --border-color: #333333;           /* Darker Gray */
 }
 
 /* Apply Background and Text Colors */
@@ -15,8 +15,8 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px; /* Reduced base font size */
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
     margin: 0;
     padding: 0;
     padding-bottom: 60px; /* Add padding to prevent footer overlap */
@@ -29,7 +29,7 @@ body {
     width: 100%;
     background-color: var(--background-color);
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .main-nav ul {
@@ -41,34 +41,26 @@ body {
 }
 
 .main-nav li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 .main-nav .nav-link {
     color: var(--secondary-text-color);
     text-decoration: none;
-    font-size: 18px;
-    padding: 8px 16px;
-    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-    border-radius: 4px;
+    font-size: 16px; /* Reduced font size */
+    padding: 6px 12px;
+    transition: color 0.3s ease;
 }
 
-.main-nav .nav-link:hover {
-    color: var(--accent-color);
-    background-color: rgba(255, 193, 7, 0.1); /* Semi-transparent background */
-    transform: translateY(-2px);
-}
-
+.main-nav .nav-link:hover,
 .main-nav .nav-link.active {
-    color: var(--accent-color);
-    background-color: rgba(255, 193, 7, 0.2);
-    transform: translateY(-2px);
+    color: var(--hover-color);
 }
 
 /* Section Styling */
 .section {
-    padding: 100px 20px 60px 20px;
-    max-width: 1200px;
+    padding: 80px 20px 40px 20px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -79,91 +71,94 @@ body {
 .bio-container {
     display: flex;
     align-items: flex-start;
-    gap: 30px;
-    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 20px;
+    flex-wrap: nowrap;
 }
 
 .profile-container {
-    flex: 0 0 250px; /* Fixed width */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.profile-photo {
-    width: 200px; /* Adjusted width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-    object-fit: cover;
-    border: 4px solid var(--accent-color);
-    flex-shrink: 0;
-}
-
-.additional-info {
+    flex: 0 0 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
 
+.profile-photo {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+.additional-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
 .description {
     font-style: italic;
     color: var(--secondary-text-color);
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .location {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--secondary-text-color);
 }
 
 .location-icon {
-    margin-right: 8px;
-    width: 20px;
-    height: 20px;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
     fill: var(--accent-color);
 }
 
+/* Bio Content */
 .bio-content {
-    flex: 1; /* Take remaining space */
-    max-width: 800px; /* Optional for readability */
+    flex: 1;
+    max-width: 700px;
 }
 
 .bio-content h2,
 .research-section h2,
 .projects-section h2 {
-    margin-bottom: 20px;
-    font-size: 28px;
-    background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    font-size: 24px; /* Reduced font size */
+    color: var(--accent-color);
+    text-align: center;
 }
 
 .bio-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 14px; /* Reduced font size */
+    margin-bottom: 15px;
     color: var(--text-color);
 }
 
 /* Research Papers Section */
+.research-section {
+    /* No changes needed here; it inherits from .section */
+}
+
 .research-paper {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 25px;
+    /* Removed max-width to match the Bio section */
+    /* Removed margin-left and margin-right auto */
+    width: 100%; /* Ensures it takes full width of the parent */
 }
 
 .paper-image {
-    width: 300px;
-    height: auto; /* Increased height to match text */
+    width: 150px;
+    height: 200px; /* Adjusted height */
     object-fit: cover;
-    margin-right: 20px;
+    margin-right: 15px;
     border-radius: 10px;
 }
 
@@ -173,74 +168,71 @@ body {
 
 .paper-details h3 {
     margin-top: 0;
-    font-size: 22px;
+    font-size: 18px; /* Reduced font size */
     color: var(--accent-color);
+}
+
+.paper-details h3 a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.paper-details h3 a:hover {
+    color: var(--hover-color);
 }
 
 .paper-details p {
-    margin: 5px 0;
-    font-size: 16px;
+    margin: 4px 0;
+    font-size: 14px; /* Reduced font size */
     color: var(--text-color);
 }
 
-/* Style links inside Research Section */
-.research-section a {
-    color: var(--accent-color);
-    text-decoration: none;
+/* Projects Section */
+.projects-section {
+    /* Inherits from .section */
 }
 
-.research-section a:hover {
-    color: var(--secondary-accent);
-    text-decoration: underline;
-}
-
-.research-section a:visited {
-    color: var(--accent-color);
-}
-
-/* Center the section heading */
-.research-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Social Links in Footer */
-.footer-social-links {
+.project {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 10px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    background-color: var(--secondary-background);
+    padding: 15px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    /* Removed max-width to match the Bio section */
+    width: 100%; /* Ensures it takes full width of the parent */
 }
 
-.footer-social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.project-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.project-description {
+    flex: 1;
+}
+
+.project-description h3 {
+    margin-bottom: 8px;
+    font-size: 18px; /* Reduced font size */
     color: var(--accent-color);
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 4px;
 }
 
-.footer-social-links a:hover {
-    color: var(--hover-color);
-    transform: scale(1.05);
-}
-
-.footer-social-icon {
-    margin-right: 8px;
-    width: 20px;
-    height: 20px;
+.project-description .project-icon {
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
     fill: var(--accent-color);
-    transition: fill 0.3s ease, transform 0.3s ease;
 }
 
-.footer-social-links a:hover .footer-social-icon {
-    fill: var(--hover-color);
-    transform: scale(1.1);
+.project-description p {
+    font-size: 14px; /* Reduced font size */
+    color: var(--text-color);
 }
 
 /* Footer Styling */
@@ -251,87 +243,45 @@ body {
     background-color: var(--background-color);
     color: var(--secondary-text-color);
     text-align: center;
-    padding: 10px 0;
+    padding: 8px 0;
     border-top: 1px solid var(--border-color);
     z-index: 1000;
 }
 
-.footer p {
-    margin: 0;
-    font-size: 14px;
-}
-
-/* Projects Section */
-.project {
+.footer-social-links {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-    background-color: var(--secondary-background);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    flex-wrap: wrap;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
-.project:hover {
-    background-color: var(--background-color);
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.7);
-}
-
-.project-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-right: 20px;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.project-image:hover {
-    transform: scale(1.05);
-}
-
-.project-description {
-    flex: 1;
-}
-
-.project-description h3 {
-    margin-bottom: 10px;
-    font-size: 22px;
+.footer-social-links a {
     display: flex;
     align-items: center;
-    color: var(--accent-color);
+    justify-content: center;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-size: 14px; /* Reduced font size */
+    transition: color 0.3s ease;
 }
 
-.project-description .project-icon {
-    margin-right: 8px;
-    width: 20px;
-    height: 20px;
-    fill: var(--accent-color);
+.footer-social-links a:hover {
+    color: var(--hover-color);
 }
 
-/* Smooth Scroll Behavior */
-html {
-    scroll-behavior: smooth;
+.footer-social-icon {
+    margin-right: 5px;
+    width: 18px;
+    height: 18px;
+    fill: var(--secondary-text-color);
+    transition: fill 0.3s ease;
+}
+
+.footer-social-links a:hover .footer-social-icon {
+    fill: var(--hover-color);
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-    .bio-container {
-        gap: 20px;
-    }
-
-    .profile-container {
-        flex: 0 0 200px; /* Adjusted width for medium screens */
-    }
-}
-
 @media (max-width: 768px) {
     .bio-container {
         flex-direction: column;
@@ -339,98 +289,31 @@ html {
     }
 
     .profile-container {
-        flex: 0 0 auto;
         width: 100%;
     }
 
     .bio-content {
         width: 100%;
-    }
-
-    .bio-content h2 {
         text-align: center;
     }
 
-    .bio-content p {
-        text-align: center;
-    }
-
-    .additional-info {
-        align-items: center;
-        text-align: center;
-    }
-
-    .location {
-        justify-content: center;
-    }
-
-    .social-links {
-        justify-content: center;
-        gap: 10px;
-    }
-
-    /* Adjust research paper layout on smaller screens */
-    .research-paper {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .paper-image {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .paper-details {
-        width: 100%;
-    }
-
+    .research-paper,
     .project {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
+    .paper-image,
     .project-image {
         margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .project-description {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-photo {
-        width: 140px;
-        height: auto;
-    }
-
-    .bio-content h2 {
-        font-size: 24px;
-    }
-
-    .bio-content p,
-    .paper-details p,
-    .project-description p {
-        font-size: 16px;
-    }
-
-    .main-nav .nav-link {
-        font-size: 16px;
-        padding: 6px 10px;
-    }
-
-    .footer-social-links a {
-        font-size: 14px;
-        padding: 6px 10px;
+        margin-bottom: 15px;
     }
 }
 
 /* Optional: Focus States for Accessibility */
 .nav-link:focus,
 .footer-social-links a:focus {
-    outline: 2px solid var(--accent-color);
+    outline: 2px solid var(--hover-color);
     outline-offset: 2px;
 }
