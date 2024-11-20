@@ -372,3 +372,15 @@ html {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
+
+/* Center the research section */
+.research-section {
+    max-width: 800px; /* Adjust the width as needed */
+    margin: 0 auto;   /* Centers the section */
+    text-align: left; /* Ensures text is left-aligned */
+}
+
+/* Optional: Center the section heading */
+.research-section h2 {
+    text-align: center;
+}
